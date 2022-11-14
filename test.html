@@ -9,11 +9,34 @@
 </head>
 
 <body>
-    <button id="todo_button" onclick=changeText()>click to show done</button>
+    <button id="countUp" onclick=countUp()>Up</button><br>
+
+    <div id="counter2">0</div>
+
+    <button id="countDown" onclick=countDown()>Down</button><br>
+
+    <button id="todo_button" onclick=changeText()>click to reload</button>
+
     <script>
+        let count = 0;
+
+        function countUp() {
+            count += 1;
+            updateCount();
+        }
+
+        function countDown() {
+           count -= 1;
+           updateCount();
+        }
+
+        function updateCount() {
+            let count_div = document.getElementById("counter2");
+            count_div.innerHTML = count;
+        }
+
         function changeText() {
-            let button_ = document.getElementById("todo_button");
-            button_.innerText = "Done!";
+            location.reload();
         }
 
         function greeting(firstName) {
