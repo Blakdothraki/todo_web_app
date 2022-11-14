@@ -9,7 +9,13 @@
 </head>
 
 <body>
+    <button id="todo_button" onclick=changeText()>click to show done</button>
     <script>
+        function changeText() {
+            let button_ = document.getElementById("todo_button");
+            button_.innerText = "Done!";
+        }
+
         function greeting(firstName) {
             console.log("Hello " + firstName);
         }
