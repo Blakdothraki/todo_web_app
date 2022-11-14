@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+</head>
+
+<body>
+    <script>
+        function greeting(firstName) {
+            console.log("Hello " + firstName);
+        }
+
+        function toUpper(text) {
+            result = text.toUpperCase();
+            console.log(result);
+        }
+
+        let array_ = ["bark", "meow"];
+
+        function arrayDouble(array) {
+            let result = [];
+            array.forEach(function(array) {
+                result.push(array);
+                result.push(array);
+            });
+            console.log(result);
+        }
+        arrayDouble(array_);
+    </script>
+    <!--Stop at Loops, 31mins.-->
+</body>
+
+</html>

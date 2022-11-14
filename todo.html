@@ -1,1 +1,33 @@
-<button>Press me</button>
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>My todo app</title>
+</head>
+
+<body>
+    <input type="text" />
+
+    <button onclick="addTodo()">Add Todo</button>
+    <script>
+        let button = "Press me";
+        let element = document.createElement('button');
+        element.innerText = button;
+        document.body.appendChild(element);
+
+        let todos = ["Get groceries", "Wash clothes", "Make dinner", "Do some freelance"];
+
+        todos.forEach(function(todoTitle) {
+            let element = document.createElement("div");
+            element.innerText = todoTitle;
+            document.body.appendChild(element);
+        });
+
+        function addTodo() {
+            todos.push('new todo');
+        };
+    </script>
+</body>
+
+</html>
