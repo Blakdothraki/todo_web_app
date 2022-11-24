@@ -7,8 +7,8 @@
 </head>
 
 <body>
-    <input id="todo-title" type="text" />
-    <input id="date-picker" type="date"/>
+<label for="todo-title"></label><input id="todo-title" type="text" />
+<label for="date-picker"></label><input id="date-picker" type="date"/>
 
     <button onclick="addTodo()">Add Todo</button>
 
@@ -17,7 +17,15 @@
     <script>
         // MODEL section
 
-        let todos = [];
+        let todos;
+
+        const savedTodos = JSON.parse(localStorage.getItem('todosKey'));
+
+        if(Array.isArray(savedTodos)) {
+            todos = savedTodos;
+        } else {
+            todos = [];
+        }
 
         function createTodo(title, dueDate) {
             const id = (new Date().getTime()).toString();
@@ -27,12 +35,20 @@
                 dueDate: dueDate,
                 id: id
             });
+
+            saveTodos();
         }
 
         function removeTodo(idToDelete) {
             todos = todos.filter(function (todo) {
                 return todo.id !== idToDelete;
             });
+
+            saveTodos();
+        }
+
+        function saveTodos() {
+            localStorage.setItem('todosKey', JSON.stringify(todos))
         }
 
 
