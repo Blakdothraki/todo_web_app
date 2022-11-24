@@ -15,9 +15,28 @@
     <div id="todo_list"></div>
 
     <script>
-
+        // MODEL section
 
         let todos = [];
+
+        function createTodo(title, dueDate) {
+            const id = (new Date().getTime()).toString();
+
+            todos.push({
+                title: title,
+                dueDate: dueDate,
+                id: id
+            });
+        }
+
+        function removeTodo(idToDelete) {
+            todos = todos.filter(function (todo) {
+                return todo.id !== idToDelete;
+            });
+        }
+
+
+        //VIEW section
 
         function render() {
             document.getElementById("todo_list").innerHTML = ' ';
@@ -39,17 +58,14 @@
                 todoList.appendChild(element);
             });
         }
+
+        // CONTROLLER section
+
         function deleteTodo(event) {
             const deleteButton = event.target;
             const idToDelete = deleteButton.id;
 
-            todos = todos.filter(function (todo) {
-                if (todo.id === idToDelete) {
-                    return false;
-                } else {
-                    return true
-                }
-            });
+            removeTodo(idToDelete);
 
             render();
         }
@@ -62,13 +78,7 @@
             const datePicker = document.getElementById("date-picker");
             const dueDate = datePicker.value;
 
-            const id = (new Date().getTime()).toString();
-
-            todos.push({
-                title: title,
-                dueDate: dueDate,
-                id: id
-            });
+            createTodo(title, dueDate);
 
             render();
         }
