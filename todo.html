@@ -19,7 +19,7 @@
 
         let todos;
 
-        const savedTodos = JSON.parse(localStorage.getItem('todosKey'));
+        const savedTodos = JSON.parse(localStorage.getItem('todos'));
 
         if(Array.isArray(savedTodos)) {
             todos = savedTodos;
@@ -48,7 +48,7 @@
         }
 
         function saveTodos() {
-            localStorage.setItem('todosKey', JSON.stringify(todos))
+            localStorage.setItem('todos', JSON.stringify(todos))
         }
 
 
